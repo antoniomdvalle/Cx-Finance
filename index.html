@@ -4,8 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Cx Finance</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global.css">
 </head>
-<body>
-    
+<body class="d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="card p-4 shadow-sm border rounded-4" style="width:100%; max-width:400px;">
+        <!-- LOGO -->
+        <div class="text-center mb-4">
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                <img src="images/logo.png">
+                <h4 class="fw-bold m-0 text-dark">Cx Finance</h4>
+            </div>
+            <p class="text-muted small mb-4">Managing your money for you.</p>
+            <h3 class="fw-bold text-dark">Welcome back!</h3>
+        </div>
+
+        <!-- FORM -->
+         <form>
+            <!-- email -->
+             <div class="mb-3 text-start">
+                <label for="txtEmail" class="form-label fw-semibold">Email</label>
+                <input type="email" class="form-control form-control-lg fs-6" id="txtEmail" placeholder="youremail@email.com" required>
+             </div>
+             <!-- password -->
+              <div class="mb-2 text-start">
+                <label for="txtPassword" class="form-label fw-semibold">Password</label>
+                <input type="password" class="form-control form-control-lg fs-6 border-end-0" id="txtPassword" placeholder="********" required minlength="6">
+              </div>
+
+              <!-- forgot password -->
+               <div class="text-center mb-4">
+                <a href="#" class="text-decoration-none small text-primary fw-semibold">Forgot your password?</a>
+               </div>
+
+               <!-- LOGIN button  -->
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Login</button>
+
+               <!-- OR divider  -->
+                <div class="position-relative text-center my-3">
+                    <hr class="text-muted">
+                    <span class="position-absolute top-50 start-50 translate-middle bg-white px-2 text-muted small">or</span>
+                </div>
+
+               <!-- SIGNUP button  -->
+                <a href="signup.html" class="btn btn-outline-secondary text-dark w-100 py-2 fw-semibold">Signup</a>
+
+         </form>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
