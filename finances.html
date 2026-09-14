@@ -58,7 +58,7 @@
                 </div>
             </header>
 
-            <div id="viewFinancas" class="p-4">
+            <div id="viewFinances" class="p-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="fw-bold text-dark m-0">
                         My finances
@@ -67,38 +67,131 @@
                         <i class="bi bi-plus-lg"></i> New Record
                     </button>
                 </div>
-            </div>
+            
 
-            <!-- Filtros de Busca-->
-            <div class="card border-0 shadow-sm mb-4 p-2">
-                <div class="card-body p-2 d-flex gap-3 align-items-center">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary dropdown-toggle border-0 fw-medium" type="button" data-bs-toggle="dropdown">
-                            This month
-                        </button> 
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">This month</a></li>
-                            <li><a class="dropdown-item" href="#">This year</a></li>
-                            <li><a class="dropdown-item" href="#">Whole period</a></li>
-                        </ul>
+                <!-- Filtros de Busca-->
+                <div class="card border-0 shadow-sm mb-4 p-2">
+                    <div class="card-body p-2 d-flex gap-3 align-items-center">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle border-0 fw-medium" type="button" data-bs-toggle="dropdown">
+                                This month
+                            </button> 
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">This month</a></li>
+                                <li><a class="dropdown-item" href="#">This year</a></li>
+                                <li><a class="dropdown-item" href="#">Whole period</a></li>
+                            </ul>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search"></i> </span>
+                            <input type="text" class="form-control border-0 bg-transparent ps-0" placeholder="Search transactions...">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search"></i> </span>
-                        <input type="text" class="form-control border-0 bg-transparent ps-0" placeholder="Search transactions...">
+                </div>
+
+                <!-- TABLE -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr class="text-secondary small fw-semibold">
+                                        <th class="ps-4">Date</th>
+                                        <th>Description</th>
+                                        <th>Cathegory</th>
+                                        <th>Type</th>
+                                        <th>Value</th>
+                                        <th class="text-end pe-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-4 text-muted">05/09/2026</td>
+                                        <td class="fw-semibold">Salário Mensal</td>
+                                        <td><span class="badge bg-light text-dark border">Trabalho</span></td>
+                                        <td><span class="badge bg-success-subtle text-success fw-bold">Entrada</span></td>
+                                        <td class="text-success fw-bold">R$ 3.500,00</td>
+                                        <td class="text-end pe-4">
+                                            <button class="btn btn-sm btn-link text-muted p-0 me-2"><i class="bi bi-pencil-square"></i></button>
+                                            <button class="btn btn-sm btn-link text-muted p-0"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 text-muted">04/09/2026</td>
+                                        <td class="fw-semibold">Supermercado Real</td>
+                                        <td><span class="badge bg-light text-dark border">Alimentação</span></td>
+                                        <td><span class="badge bg-danger-subtle text-danger fw-bold">Saída</span></td>
+                                        <td class="text-danger fw-bold">-R$ 350,00</td>
+                                        <td class="text-end pe-4">
+                                            <button class="btn btn-sm btn-link text-muted p-0 me-2"><i class="bi bi-pencil-square"></i></button>
+                                            <button class="btn btn-sm btn-link text-muted p-0"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <!-- Pagination is not going to be added -->
                 </div>
             </div>
 
-            <!-- TABLE -->
-            
+            <div id="viewNewRecord" class="p-4 d-flex justify-content-center align-items-center flex-grow-1 d-none">
+                <div class="card border-0 shadow-sm p-4" style="max-width: 600px; width: 100%;">
+                    <div class="mb-4">
+                        <h4 class="fw-bold text-dark m-0">
+                            New financial record
+                        </h4>
+                        <small class="text-muted">Fill the data below to catalog a new record:</small>
+                    </div>
+                    <form id="formNewRecord">
+                        <!-- Selector Income/Expense -->
+                        <div class="mb-3">
+                            <label class="form-label text-secondary fw-semibold small">Type</label>
+                            <input type="radio" class="btn-check" name="typeGroup" id="typeIncome" checked>
+                            <label class="btn btn-outline-primary border-0 rounded fw-medium" for="typeIncome">Entrada</label>
 
-
-
+                            <input type="radio" class="btn-check" name="typeGroup" id="typeExpense">
+                            <label class="btn btn-outline-primary border-0 rounded fw-medium" for="typeExpense">Saída</label>
+                        </div>
+                        <!-- Value -->
+                        <div class="mb-3">
+                            <label for="recordAmount" class="form-label text-secondary fw-semibold small">Value (R$)</label>
+                            <input type="text" class="form-control form-control-lg fs-6" id="recordAmount" placeholder="R$ 00,00" required>
+                        </div>
+                        <!-- Date -->
+                        <div class="mb-3">
+                            <label for="recordDate" class="form-label text-secondary fw-semibold small">Date</label>
+                            <input type="date" class="form-control" id="recordDate" required>
+                        </div>
+                        <!-- Cathegory -->
+                        <div class="mb-3">
+                            <label for="recordCathegory" class="form-label text-secondary fw-semibold small">Cathegory</label>
+                            <select class="form-select" id="recordCategory" required>
+                                <option value="" selected disabled>Select one cathegory</option>
+                                <option value="Trabalho">Work</option>
+                                <option value="Alimentação">Food</option>
+                                <option value="Moradia">Housing</option>
+                                <option value="Lazer">Fun</option>
+                            </select>
+                        </div>
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="recordDescription" class="form-label text-secondary fw-semibold small">Description</label>
+                            <textarea class="form-control form-control-lg fs-6" rows="3" id="recordDescription" placeholder="Stocks, revenue shares, grocerie store..."></textarea>
+                        </div>
+                        <!-- Submit -->
+                        <div class="d-flex justify-content-end gap-2">
+                            <button type="button" id="btnCancelRecord" class="btn btn-outline-secondary px-4">Cancel</button>
+                            <button type="submit" class="btn btn-primary px-4">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
     </div>
 
-
-    <script src="js/signup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/finances.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
