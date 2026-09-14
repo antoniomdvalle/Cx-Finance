@@ -47,6 +47,8 @@
                 </li>
             </ul>
         </aside>
+        
+        
         <main class="flex-grow-1 d-flex flex-column">
             <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center px-4">
                 <span class="fw-semibold text-dark fs-5">Hello, Antonio!</span>
@@ -55,6 +57,39 @@
                     <div class="bg-secondary rounded-circle" style="width:35px; height:35px;"></div>
                 </div>
             </header>
+
+            <div id="viewFinancas" class="p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold text-dark m-0">
+                        My finances
+                    </h3>
+                    <button id="btnOpenNewRecord" class="btn btn-primary d-flex align-items-center gap-2 fw-medium px-3 py-2">
+                        <i class="bi bi-plus-lg"></i> New Record
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros de Busca-->
+            <div class="card border-0 shadow-sm mb-4 p-2">
+                <div class="card-body p-2 d-flex gap-3 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle border-0 fw-medium" type="button" data-bs-toggle="dropdown">
+                            This month
+                        </button> 
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">This month</a></li>
+                            <li><a class="dropdown-item" href="#">This year</a></li>
+                            <li><a class="dropdown-item" href="#">Whole period</a></li>
+                        </ul>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search"></i> </span>
+                        <input type="text" class="form-control border-0 bg-transparent ps-0" placeholder="Search transactions...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE -->
             
 
 
