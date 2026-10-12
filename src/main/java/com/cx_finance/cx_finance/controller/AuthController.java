@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.servlet.http.HttpSession; // Importante para gerenciar a sessão
 
 import java.util.Optional;
 
@@ -29,10 +30,11 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user, HttpSession session) {
         Optional<User> authenticatedUser = userService.authenticate(user.getEmail(), user.getPassword());
 
         if (authenticatedUser.isPresent()) {
+            session.setAttribute("loggedUser", authenticatedUser.get());
             return ResponseEntity.ok("Login realizado com sucesso!");
         }
 

@@ -29,9 +29,9 @@
 
 ### C. Funcionamento da sessão
 
-- [ ] **CT14 — Criar sessão após login:** realizar login com credenciais válidas e verificar se o servidor cria uma sessão autenticada ou emite o mecanismo de autenticação previsto pelo projeto.
-- [ ] **CT15 — Manter sessão ao navegar:** depois do login, navegar entre as páginas protegidas. O sistema deve manter o usuário autenticado enquanto a sessão estiver válida.
-- [ ] **CT16 — Atualizar página com sessão ativa:** atualizar uma página protegida usando `F5`. O usuário deve continuar autenticado, sem precisar fazer login novamente.
+- [X] **CT14 — Criar sessão após login:** realizar login com credenciais válidas e verificar se o servidor cria uma sessão autenticada ou emite o mecanismo de autenticação previsto pelo projeto.
+- [X] **CT15 — Manter sessão ao navegar:** depois do login, navegar entre as páginas protegidas. O sistema deve manter o usuário autenticado enquanto a sessão estiver válida.
+- [X] **CT16 — Atualizar página com sessão ativa:** atualizar uma página protegida usando `F5`. O usuário deve continuar autenticado, sem precisar fazer login novamente.
 - [ ] **CT17 — Bloquear acesso sem login:** abrir uma página protegida diretamente pela URL, em uma janela sem autenticação. O sistema deve redirecionar para o login ou negar o acesso.
 - [ ] **CT18 — Bloquear acesso após encerramento da sessão:** fazer logout, caso já esteja implementado, e tentar abrir novamente uma página protegida. O acesso deve ser negado.
 - [ ] **CT19 — Invalidar a sessão no logout:** fazer logout e verificar se a sessão no servidor foi invalidada ou se o mecanismo de autenticação foi encerrado corretamente.
