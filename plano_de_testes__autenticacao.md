@@ -35,11 +35,11 @@
 ## Part 2
 - [X] **CT17 — Bloquear acesso sem login:** abrir uma página protegida diretamente pela URL, em uma janela sem autenticação. O sistema deve redirecionar para o login ou negar o acesso.
 ## Part 3
-- [ ] **CT18 — Bloquear acesso após encerramento da sessão:** fazer logout, caso já esteja implementado, e tentar abrir novamente uma página protegida. O acesso deve ser negado.
-- [ ] **CT19 — Invalidar a sessão no logout:** fazer logout e verificar se a sessão no servidor foi invalidada ou se o mecanismo de autenticação foi encerrado corretamente.
-- [ ] **CT20 — Impedir reutilização da sessão encerrada:** após o logout, usar o botão Voltar do navegador ou tentar acessar uma URL protegida novamente. O sistema não deve permitir que a sessão encerrada continue autorizando o acesso.
-- [ ] **CT21 — Expiração da sessão:** deixar a sessão inativa pelo período configurado e tentar acessar uma página protegida. O sistema deve solicitar nova autenticação ou negar o acesso, conforme a configuração.
-- [ ] **CT22 — Isolamento entre usuários:** entrar com uma conta, sair e entrar com outra. O segundo usuário não deve ter acesso aos dados privados da primeira conta.
+- [X] **CT18 — Bloquear acesso após encerramento da sessão:** fazer logout, caso já esteja implementado, e tentar abrir novamente uma página protegida. O acesso deve ser negado.
+- [X] **CT19 — Invalidar a sessão no logout:** fazer logout e verificar se a sessão no servidor foi invalidada ou se o mecanismo de autenticação foi encerrado corretamente.
+- [X] **CT20 — Impedir reutilização da sessão encerrada:** após o logout, usar o botão Voltar do navegador ou tentar acessar uma URL protegida novamente. O sistema não deve permitir que a sessão encerrada continue autorizando o acesso.
+- [X] **CT21 — Expiração da sessão:** deixar a sessão inativa pelo período configurado e tentar acessar uma página protegida. O sistema deve solicitar nova autenticação ou negar o acesso, conforme a configuração.
+- [X] **CT22 — Isolamento entre usuários:** entrar com uma conta, sair e entrar com outra. O segundo usuário não deve ter acesso aos dados privados da primeira conta.
 
 **Importante:** os testes CT14–CT22 dependem de como a autenticação foi implementada. Se o backend ainda não tiver sessão, logout ou expiração configurados, registre o teste como **Pendente de implementação**, em vez de marcar como aprovado.
 

@@ -40,4 +40,12 @@ public class AuthController {
 
         return ResponseEntity.status(401).body("Erro: E-mail ou senha inválidos.");
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpSession session) {
+        if (session != null) {
+            session.invalidate(); // Destrói a sessão no servidor (CT19)
+        }
+        return ResponseEntity.ok("Logout realizado com sucesso!");
+    }
 }
