@@ -93,11 +93,11 @@ Após corrigir o problema, execute novamente o teste correspondente e registre o
 
 ## 4. Critério de conclusão
 
-- [ ] Todos os testes aplicáveis foram executados.
-- [ ] Todos os testes aprovados possuem evidências quando necessário.
+- [X] Todos os testes aplicáveis foram executados.
+- [X] Todos os testes aprovados possuem evidências quando necessário.
 - [ ] Todos os defeitos encontrados foram registrados.
 - [ ] Os defeitos corrigidos foram retestados.
-- [ ] Os testes pendentes foram identificados e justificados.
+- [X] Os testes pendentes foram identificados e justificados.
 
 **Observação técnica:** validar o formulário de login no JavaScript não comprova que a sessão funciona. O backend precisa confirmar a identidade do usuário e proteger as rotas privadas. Como o Cx Finance usa Spring Boot com HTML, Bootstrap e JavaScript, teste também as requisições diretamente à API, e não apenas o comportamento visual das páginas.
 

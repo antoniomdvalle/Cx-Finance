@@ -144,20 +144,43 @@
                         <small class="text-muted">Fill the data below to catalog a new record:</small>
                     </div>
                     <form id="formNewRecord">
-                        <!-- Selector Income/Expense -->
-                        <div class="mb-3">
-                            <label class="form-label text-secondary fw-semibold small">Type</label>
-                            <input type="radio" class="btn-check" name="typeGroup" id="typeIncome" checked>
-                            <label class="btn btn-outline-primary border-0 rounded fw-medium" for="typeIncome">Entrada</label>
+                        <input
+                            type="radio"
+                            class="btn-check"
+                            name="tipo"
+                            id="typeIncome"
+                            value="ENTRADA"
+                            checked
+                            required
+                        >
 
-                            <input type="radio" class="btn-check" name="typeGroup" id="typeExpense">
-                            <label class="btn btn-outline-primary border-0 rounded fw-medium" for="typeExpense">Saída</label>
-                        </div>
-                        <!-- Value -->
-                        <div class="mb-3">
-                            <label for="recordAmount" class="form-label text-secondary fw-semibold small">Value (R$)</label>
-                            <input type="text" class="form-control form-control-lg fs-6" id="recordAmount" placeholder="R$ 00,00" required>
-                        </div>
+                        <label class="btn btn-outline-primary rounded fw-medium"
+                            for="typeIncome">
+                            Entrada
+                        </label>
+
+                        <input
+                            type="radio"
+                            class="btn-check"
+                            name="tipo"
+                            id="typeExpense"
+                            value="SAIDA"
+                            required
+                        >
+
+                        <label class="btn btn-outline-primary rounded fw-medium"
+                            for="typeExpense">
+                            Saída
+                        </label>
+                        <input
+                            type="number"
+                            class="form-control form-control-lg fs-6"
+                            id="recordAmount"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="0.00"
+                            required
+                        >
                         <!-- Date -->
                         <div class="mb-3">
                             <label for="recordDate" class="form-label text-secondary fw-semibold small">Date</label>
@@ -166,7 +189,7 @@
                         <!-- Cathegory -->
                         <div class="mb-3">
                             <label for="recordCathegory" class="form-label text-secondary fw-semibold small">Cathegory</label>
-                            <select class="form-select" id="recordCategory" required>
+                            <select class="form-select" id="recordCathegory" required>
                                 <option value="" selected disabled>Select one cathegory</option>
                                 <option value="Trabalho">Work</option>
                                 <option value="Alimentação">Food</option>
@@ -174,11 +197,13 @@
                                 <option value="Lazer">Fun</option>
                             </select>
                         </div>
-                        <!-- Description -->
-                        <div class="mb-3">
-                            <label for="recordDescription" class="form-label text-secondary fw-semibold small">Description</label>
-                            <textarea class="form-control form-control-lg fs-6" rows="3" id="recordDescription" placeholder="Stocks, revenue shares, grocerie store..."></textarea>
-                        </div>
+                        <textarea
+                            class="form-control form-control-lg fs-6"
+                            rows="3"
+                            id="recordDescription"
+                            placeholder="Stocks, revenue shares, grocery store..."
+                            required
+                        ></textarea>
                         <!-- Submit -->
                         <div class="d-flex justify-content-end gap-2">
                             <button type="button" id="btnCancelRecord" class="btn btn-outline-secondary px-4">Cancel</button>
