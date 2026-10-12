@@ -30,8 +30,18 @@ public class MainController {
         return "/goals";
     }
 
+    @GetMapping("/new-goal")
+    public String newGoal(){
+        return "/new-goal";
+    }
+
     @GetMapping("/reports")
     public String reports(){
         return "/reports";
+    }
+    
+    @GetMapping("/edit-goal")
+    public String paginaEditarMeta() {
+        return "edit-goal";
     }
 }  

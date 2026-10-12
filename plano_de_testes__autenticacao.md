@@ -43,36 +43,7 @@
 
 **Importante:** os testes CT14–CT22 dependem de como a autenticação foi implementada. Se o backend ainda não tiver sessão, logout ou expiração configurados, registre o teste como **Pendente de implementação**, em vez de marcar como aprovado.
 
-## 2. Registro dos resultados
-
-Use esta tabela para documentar o resultado de cada teste executado. Para CT14–CT22, registre cada teste separadamente.
-
-| ID | Resultado | Evidência / observação |
-|---|---|---|
-| CT01 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT02 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT03 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT04 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT05 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT06 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT07 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT08 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT09 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT10 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT11 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT12 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT13 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT14 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT15 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT16 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT17 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT18 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT19 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT20 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT21 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-| CT22 | [ ] Aprovado [ ] Falhou [ ] Pendente | |
-
-## 3. Registro de defeitos (Bugtracking)
+## 2. Registro de defeitos (Bugtracking)
 
 Quando um teste falhar, registre o problema usando este modelo:
 
@@ -91,7 +62,7 @@ Evidência: captura de tela, mensagem de erro ou log
 
 Após corrigir o problema, execute novamente o teste correspondente e registre o resultado do reteste.
 
-## 4. Critério de conclusão
+## 3. Critério de conclusão
 
 - [X] Todos os testes aplicáveis foram executados.
 - [X] Todos os testes aprovados possuem evidências quando necessário.

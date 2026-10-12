@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Goal - Cx Finance</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+
+<body>
+
+<div class="d-flex min-vh-100">
+
+    <div th:replace="~{fragments/sidebar :: sidebar('goals')}"></div>
+
+    <main class="flex-grow-1 d-flex flex-column">
+
+        <header class="bg-white border-bottom px-4 py-3
+                       d-flex justify-content-between align-items-center">
+            <span class="fw-semibold text-dark fs-5">
+                Hello, Antonio!
+            </span>
+
+            <div class="bg-secondary rounded-circle"
+                 style="width: 35px; height: 35px;">
+            </div>
+        </header>
+
+        <section class="p-4 flex-grow-1">
+
+            <div class="container-fluid" style="max-width: 900px;">
+
+                <a href="/goals"
+                   class="text-decoration-none text-primary fw-semibold mb-3 d-inline-block">
+                    &larr; Back to my goals
+                </a>
+
+                <h2 class="fw-bold text-dark">Manage goal</h2>
+
+                <p class="text-muted mb-4">
+                    Update your goal details and track your progress.
+                </p>
+
+                <div id="mensagemEdicao"
+                     class="alert d-none"
+                     role="alert"></div>
+
+                <div id="carregandoMeta" class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="text-muted mt-3">Loading goal...</p>
+                </div>
+
+                <div id="conteudoMeta" class="d-none">
+
+                    <div class="card border rounded-4 p-4 shadow-sm bg-white">
+
+                        <form id="formEditarMeta">
+
+                            <div class="mb-3">
+                                <label for="txtNomeMeta"
+                                       class="form-label fw-semibold">
+                                    Goal name <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text"
+                                       id="txtNomeMeta"
+                                       class="form-control"
+                                       maxlength="150"
+                                       required>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <div class="col-md-6">
+                                    <label for="txtValorObjetivo"
+                                           class="form-label fw-semibold">
+                                        Target amount <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="input-group">
+                                        <span class="input-group-text">R$</span>
+                                        <input type="text"
+                                               id="txtValorObjetivo"
+                                               class="form-control"
+                                               placeholder="5.000,00"
+                                               required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="txtValorGuardado"
+                                           class="form-label fw-semibold">
+                                        Amount saved <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="input-group">
+                                        <span class="input-group-text">R$</span>
+                                        <input type="text"
+                                               id="txtValorGuardado"
+                                               class="form-control"
+                                               placeholder="0,00"
+                                               required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtPrazo"
+                                       class="form-label fw-semibold">
+                                    Deadline <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="date"
+                                       id="txtPrazo"
+                                       class="form-control"
+                                       required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="txtDescricao"
+                                       class="form-label fw-semibold">
+                                    Description
+                                </label>
+
+                                <textarea id="txtDescricao"
+                                          class="form-control"
+                                          rows="4"
+                                          maxlength="2000"
+                                          placeholder="Describe your goal..."></textarea>
+                            </div>
+
+                            <div class="d-flex flex-wrap justify-content-between
+                                        align-items-center gap-3 pt-3 border-top">
+
+                                <a href="/goals"
+                                   class="btn btn-outline-secondary">
+                                    Cancel
+                                </a>
+
+                                <button type="submit"
+                                        id="btnSalvarMeta"
+                                        class="btn btn-primary px-4">
+                                    Save changes
+                                </button>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Zona de exclusão -->
+                    <div class="card border border-danger-subtle rounded-4
+                                p-4 mt-4">
+
+                        <h5 class="fw-bold text-danger">Danger zone</h5>
+
+                        <p class="text-muted mb-3">
+                            Deleting this goal is permanent and cannot be undone.
+                        </p>
+
+                        <div>
+                            <button type="button"
+                                    id="btnExcluirMeta"
+                                    class="btn btn-outline-danger">
+                                <i class="bi bi-trash me-1"></i>
+                                Delete goal
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/js/edit-goal.js"></script>
+<script src="/js/logout.js"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+</script>
+
+</body>
+</html>
