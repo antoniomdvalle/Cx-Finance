@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Fragmento da Barra Lateral (Sidebar) que aceita qual página está ativa -->
+    <aside th:fragment="sidebar(activePage)" class="text-white p-3 d-flex flex-column" style="width:250px; background-color:#1B2A4A;">
+        <!-- LOGO -->
+        <div class="mb-4">
+            <img th:src="@{/images/logo-model-2.png}" style="width:auto; max-width:150px; padding:5px;" alt="Logo">
+        </div>
+        
+        <!-- Navigation Menu -->
+        <ul class="nav nav-pills flex-column gap-2">
+            <li class="nav-item">
+                <a th:href="@{/dashboard}" class="nav-link text-white-50 d-flex align-items-center gap-2" 
+                   th:classappend="${activePage == 'dashboard'} ? ' active bg-primary text-white' : ''">
+                    <img th:src="@{/images/layout-dashboard.png}" alt=""> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/finances}" class="nav-link text-white-50 d-flex align-items-center gap-2" 
+                   th:classappend="${activePage == 'finances'} ? ' active bg-primary text-white' : ''">
+                    <img th:src="@{/images/dollar-sign.png}" alt=""> Finances
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/goals}" class="nav-link text-white-50 d-flex align-items-center gap-2" 
+                   th:classappend="${activePage == 'goals'} ? ' active bg-primary text-white' : ''">
+                    <img th:src="@{/images/target.png}" alt=""> Goals
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/reports}" class="nav-link text-white-50 d-flex align-items-center gap-2" 
+                   th:classappend="${activePage == 'reports'} ? ' active bg-primary text-white' : ''">
+                    <img th:src="@{/images/trending-up.png}" alt=""> Reports
+                </a>
+            </li>
+        </ul>
+
+        <!-- Botão de Sair (Logout) fixado na parte inferior da sidebar -->
+        <div class="mt-auto pt-3">
+            <button id="btnLogout" class="btn btn-outline-light w-100 btn-sm fw-semibold">Sair</button>
+        </div>
+    </aside>
+</body>
+</html>
