@@ -25,7 +25,7 @@
 - [X] **CT10 — Login com senha incorreta:** informar um usuário existente com senha errada. O sistema deve negar o acesso e apresentar uma mensagem adequada.
 - [X] **CT11 — Login com usuário inexistente:** informar um e-mail ou identificador não cadastrado. O sistema deve negar o acesso.
 - [X] **CT12 — Login com campos vazios:** tentar entrar sem preencher os campos obrigatórios. O sistema deve impedir o envio ou informar os campos pendentes.
-- [ ] **CT13 — Não expor a senha:** verificar se a senha não aparece em texto puro nos registros do servidor, na resposta da API ou em mensagens de erro. O sistema nunca deve retornar a senha ou seu hash ao navegador.
+- [X] **CT13 — Não expor a senha:** verificar se a senha não aparece em texto puro nos registros do servidor, na resposta da API ou em mensagens de erro. O sistema nunca deve retornar a senha ou seu hash ao navegador.
 
 ### C. Funcionamento da sessão
 
