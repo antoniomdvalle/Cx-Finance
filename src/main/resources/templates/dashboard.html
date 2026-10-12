@@ -35,38 +35,47 @@
                     <div class="col-md-4">
                         <div class="card p-3 border-0 border-start border-4 border-success shadow-sm">
                             <small class="text-muted fw-bold text-uppercase">income</small>
-                            <h3 class="fw-bold text-dark m-0 mt-1">R$3.850,00</h3>
+                            <h3 id="totalReceitas" class="fw-bold text-dark m-0 mt-1">Loading...</h3>
                         </div>
                     </div>
                     <!-- expense CARD-->
                     <div class="col-md-4">
                         <div class="card p-3 border-0 border-start border-4 border-danger shadow-sm">
                             <small class="text-muted fw-bold text-uppercase">expenses</small>
-                            <h3 class="fw-bold text-dark m-0 mt-1">R$2.340,00</h3>
+                            <h3 id="totalDespesas" class="fw-bold text-dark m-0 mt-1">Loading...</h3>
                         </div>
                     </div>
                     <!-- balance CARD-->
                     <div class="col-md-4">
                         <div class="card p-3 border-0 border-start border-4 border-primary shadow-sm">
                             <small class="text-muted fw-bold text-uppercase">balance</small>
-                            <h3 class="fw-bold text-dark m-0 mt-1">R$1.510,00</h3>
+                            <h3 id="saldoAtual" class="fw-bold text-dark m-0 mt-1">Loading...</h3>
                         </div>
                     </div>
                 </div>
 
                 <!-- GRAPHIC -->
-                 <div class="card p-4 border-0 shadow-sm">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-bold m-0 text-dark"> Income X Expenses</h6>
-                        <small class="text-muted"> Whole period </small>
-                    </div>
-                    <!-- GRAPHIC PLACEHOLDER -->
-                     <div class="bg-light rounded p-5 text-center text-muted border">
-                        [ Bar Graphic ]
-                     </div>
-                 </div>
+                <div class="card p-4 border-0 shadow-sm">
+                    <div class="d-flex justify-content-between
+                                align-items-center mb-3">
+                        <h6 class="fw-bold m-0 text-dark">
+                            Income X Expenses
+                        </h6>
 
-            </div>
+                        <small class="text-muted">
+                            Last 6 months
+                        </small>
+                    </div>
+
+                    <div style="position: relative; height: 350px;">
+                        <canvas id="graficoFinanceiro"></canvas>
+                    </div>
+
+                    <div id="mensagemGrafico"
+                        class="alert alert-danger d-none mt-3 mb-0"
+                        role="alert">
+                    </div>
+                </div>
         </main>
 
     </div>
@@ -74,6 +83,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/dashboard.js"></script>
     <script src="/js/logout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

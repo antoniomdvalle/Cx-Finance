@@ -1,89 +1,256 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/global.css">
+    <title>Reports - Cx Finance</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+
+    <style>
+        .report-card {
+            border: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .report-chart {
+            position: relative;
+            height: 320px;
+        }
+
+        @media print {
+            .sidebar,
+            .no-print,
+            header button,
+            #filtrosRelatorio {
+                display: none !important;
+            }
+
+            main {
+                width: 100% !important;
+            }
+
+            .report-card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                break-inside: avoid;
+            }
+
+            body {
+                background: white !important;
+            }
+
+            .table-responsive {
+                overflow: visible !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <!--Colors:
-    #FFFFFF
-    #1B2A4A
-    #3B82F6
-    -->
-    <div class="d-flex min-vh-100">
-        <div th:replace="fragments/sidebar :: sidebar('reports')"></div>
+<div class="d-flex min-vh-100">
 
-        <main class="flex-grow-1 d-flex flex-column">
-            <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center px-4">
-                <span class="fw-semibold text-dark fs-5">Hello, Antonio!</span>
-                <div class="d-flex align-items-center gap-3">
-                    <button class="btn btn-light rounded-circle border-0"><i class="bi bi-bell"></i> </button>
-                    <div class="bg-secondary rounded-circle" style="width:35px; height:35px;"></div>
-                </div>
-            </header>
+    <div th:replace="~{fragments/sidebar :: sidebar('reports')}"></div>
 
-            <!-- DASHBOARD -->
-            <div class="p-4">
-                 <h3 class="fw-bold text-dark m-0">Financial reports</h3>
-                 <p class="text-muted small mb-4">
-                    Visualize your financial progress
-                 </p>
-                 <!-- Period Filters -->
-                 <div class="card border-0 shadow-sm mb-4 p-2">
-                    <div class="card-body p-2 d-flex gap-3 align-items-center">
-                        <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle border-0 fw-medium" type="button" data-bs-toggle="dropdown">
-                                Past year
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Últimos 30 dias</a></li>
-                                <li><a class="dropdown-item" href="#">Últimos 6 meses</a></li>
-                                <li><a class="dropdown-item" href="#">Este Ano</a></li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-primary px-3 py-1 fs-6">Generate report</button>
-                    </div>
-                 </div> 
+    <main class="flex-grow-1 d-flex flex-column">
 
+        <header class="bg-white p-3 border-bottom d-flex
+                      justify-content-between align-items-center px-4">
+            <span class="fw-semibold text-dark fs-5">Reports</span>
 
-                 <!-- Colored-bordered cards-->
-                 <div class="row g-3 mb-4">
-                    <div class="col-md-4">
-                        <div class="card border-success border-1 shadow-sm p-3">
-                            <span class="text-secondary small fw-semibold text-uppercase">Total Income</span>
-                            <h3 class="text-success fw-bold m-0 mt-1">R$ 8.450</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card border-danger border-1 shadow-sm p-3">
-                            <span class="text-secondary small fw-semibold text-uppercase">Total Expenses</span>
-                            <h3 class="text-danger fw-bold m-0 mt-1">R$ 5.120</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card border-primary border-1 shadow-sm p-3">
-                            <span class="text-secondary small fw-semibold text-uppercase">Balance</span>
-                            <h3 class="text-primary fw-bold m-0 mt-1">R$ 3.240</h3>
-                        </div>
-                    </div>
-                 </div>
+            <div class="d-flex gap-2 no-print">
+                <button id="btnExportarCSV" class="btn btn-outline-primary btn-sm">
+                    Exportar CSV
+                </button>
 
-                 <!-- Export -->
-                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-outline-secondary text-dark fw-medium px-4">Export report (PDF) </button>
-                 </div>
+                <button id="btnImprimir" class="btn btn-primary btn-sm">
+                    Imprimir relatório
+                </button>
             </div>
-        </main>
+        </header>
 
+        <div class="p-4">
 
+            <div class="mb-4">
+                <h3 class="fw-bold text-dark">Relatórios financeiros</h3>
+                <p class="text-muted mb-0">
+                    Analise suas receitas, despesas e movimentações financeiras.
+                </p>
+            </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/signup.js"></script>
-    <script src="/js/logout.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+            <div id="mensagemRelatorio"
+                 class="alert d-none"
+                 role="alert"></div>
+
+            <!-- Filtros -->
+            <section id="filtrosRelatorio"
+                     class="card report-card p-4 mb-4">
+
+                <form id="formFiltros" class="row g-3 align-items-end">
+
+                    <div class="col-md-4">
+                        <label for="dataInicio" class="form-label">
+                            Data inicial
+                        </label>
+                        <input type="date" id="dataInicio"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="dataFim" class="form-label">
+                            Data final
+                        </label>
+                        <input type="date" id="dataFim"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="categoria" class="form-label">
+                            Categoria
+                        </label>
+                        <select id="categoria" class="form-select">
+                            <option value="">Todas as categorias</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 d-flex gap-2 flex-wrap">
+                        <button type="submit" id="btnFiltrar"
+                                class="btn btn-primary">
+                            Aplicar filtros
+                        </button>
+
+                        <button type="button" id="btnLimparFiltros"
+                                class="btn btn-outline-secondary">
+                            Limpar filtros
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+            <div id="carregandoRelatorio"
+                 class="text-center py-5 d-none">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="text-muted mt-2 mb-0">Carregando relatório...</p>
+            </div>
+
+            <div id="conteudoRelatorio">
+
+                <div class="d-flex justify-content-between
+                            align-items-center mb-3 flex-wrap gap-2">
+                    <h5 class="fw-bold mb-0">Resumo do período</h5>
+
+                    <small id="periodoRelatorio" class="text-muted">
+                        Histórico completo
+                    </small>
+                </div>
+
+                <!-- Indicadores -->
+                <div class="row g-3 mb-4">
+
+                    <div class="col-md-4">
+                        <div class="card report-card p-3 border-start border-4 border-success">
+                            <small class="text-muted text-uppercase fw-bold">
+                                Receitas
+                            </small>
+                            <h4 id="totalReceitas" class="fw-bold mt-2 mb-0">
+                                R$ 0,00
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card report-card p-3 border-start border-4 border-danger">
+                            <small class="text-muted text-uppercase fw-bold">
+                                Despesas
+                            </small>
+                            <h4 id="totalDespesas" class="fw-bold mt-2 mb-0">
+                                R$ 0,00
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card report-card p-3 border-start border-4 border-primary">
+                            <small class="text-muted text-uppercase fw-bold">
+                                Saldo do período
+                            </small>
+                            <h4 id="saldoRelatorio" class="fw-bold mt-2 mb-0">
+                                R$ 0,00
+                            </h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-muted mb-0">
+                        Movimentações encontradas:
+                        <strong id="quantidadeMovimentacoes">0</strong>
+                    </p>
+                </div>
+
+                <!-- Gráfico -->
+                <div class="card report-card p-4 mb-4">
+                    <h5 class="fw-bold mb-3">Despesas por categoria</h5>
+
+                    <div id="mensagemGrafico"
+                         class="text-muted text-center d-none">
+                        Não há despesas para exibir neste filtro.
+                    </div>
+
+                    <div id="areaGrafico" class="report-chart">
+                        <canvas id="graficoCategorias"></canvas>
+                    </div>
+                </div>
+
+                <!-- Tabela -->
+                <div class="card report-card p-4">
+                    <div class="d-flex justify-content-between
+                                align-items-center flex-wrap gap-2 mb-3">
+                        <h5 class="fw-bold mb-0">Movimentações</h5>
+                        <small class="text-muted">
+                            Ordenadas da mais recente para a mais antiga
+                        </small>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Tipo</th>
+                                <th class="text-end">Valor</th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="tabelaMovimentacoes">
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">
+                                    Carregando movimentações...
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/reports.js"></script>
+<script src="/js/logout.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

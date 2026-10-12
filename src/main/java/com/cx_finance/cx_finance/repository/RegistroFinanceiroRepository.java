@@ -9,4 +9,9 @@ import java.util.List;
 public interface RegistroFinanceiroRepository extends JpaRepository<RegistroFinanceiro, Long>{
     List<RegistroFinanceiro> findAllByUserId(Long userId);
     List<RegistroFinanceiro> findAllByUser_IdOrderByDataDescIdDesc(Long userId);
+    List<RegistroFinanceiro>
+    findAllByUser_IdAndDataGreaterThanEqualOrderByDataAscIdAsc(
+        Long userId,
+        java.time.LocalDate data
+    );
 }
